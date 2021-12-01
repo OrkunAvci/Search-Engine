@@ -1,15 +1,12 @@
-import scrapy
-import string
+import textnanipulations as tm
 
 raw_text = """..."""
+first = tm.frequency_table(raw_text)
 
-clean_text = raw_text.strip(string.punctuation)
-words = clean_text.split(" ")
+raw_text_2 = """..."""
+second = tm.frequency_table(raw_text_2)
 
-dic = {}
-for key in words:
-	if key not in dic.keys() :
-		dic[key] = 0
-	dic[key] = dic[key] + 1
-
-print(dic)
+print(first)
+print(second)
+print(tm.encapsulate(first))
+print(tm.encapsulate(second))
