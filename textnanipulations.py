@@ -17,9 +17,7 @@ def encapsulate(original: dict) -> dict:
 	meta = {
 		"total_word_count"  : sum([v for k, v in original.items()]),
 		"unique_word_count" : len([v for k, v in original.items()]),
-		"most_frequent"     : next(iter((original.items()))),
-		"expectation"       : 0,
-		"altered_data"      : {},
+		"rank"              : 0,
 		"data"              : original
 	}
 
