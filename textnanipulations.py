@@ -1,7 +1,8 @@
 import string
+import nltk
 
 def frequency_table(raw_text: str) -> dict:
-	clean_text = raw_text.strip().strip(string.punctuation).strip(string.digits)
+	clean_text = raw_text.strip().strip(string.punctuation).strip(string.digits).strip("?«»")
 	words = clean_text.split(" ")
 
 	dic = {}
