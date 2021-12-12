@@ -7,16 +7,15 @@ import requests as req
 import re
 import time
 
-import textnanipulations as tm
+import process_text as pt
 
-def get_link_list(url: str) -> list:
+def get_link_list(url: str, downs: int = 1600) -> list:
 	ser = Service("D:/chromedriver_win32/chromedriver.exe")     #   Plug your own driver path or configure PATH.
 	browser = Chrome(service = ser)
 	browser.get(url)
 	time.sleep(1)
 	body = browser.find_element(By.TAG_NAME, "body")
 
-	downs = 600     #   1 min
 	while downs :
 		body.send_keys(Keys.PAGE_DOWN)
 		time.sleep(0.1)
@@ -43,6 +42,6 @@ def get_text_from_url(url: str) -> dict:
 	for elem in soup.find_all("p", text=True):
 		text = text + " " + elem.getText()
 
-	table = tm.frequency_table(text)
-	encap = tm.encapsulate(table)
+	table = pt.frequency_table(text)
+	encap = pt.encapsulate(table)
 	return encap
