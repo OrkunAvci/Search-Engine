@@ -24,22 +24,12 @@ def frequency_table(tokens: list) -> dict:
 
 	return table
 
-def guided_frequency_table(guide: dict, ft: dict) -> dict:
-	gft = guide
-	for key in gft.keys():
-		if key in ft.keys():
-			gft[key] = ft[key]
-	return gft
-
 def encapsulate(original: dict) -> dict:
 	meta = {
 		"total_word_count"  : sum([v for k, v in original.items()]),
 		"unique_word_count" : len([v for k, v in original.items()]),
-		"rank"              : 0,
+		"TF-IDF"            : 0,
 		"data"              : original
 	}
-
-	meta["expectation"] = meta["total_word_count"] / meta["unique_word_count"]
-	meta["altered_data"] = {k:v for k,v in original.items() if v > meta["expectation"]}
 
 	return meta
