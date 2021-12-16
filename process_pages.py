@@ -42,6 +42,4 @@ def get_text_from_url(url: str) -> dict:
 	for elem in soup.find_all("p", text=True):
 		text = text + " " + elem.getText()
 
-	table = pt.frequency_table(text)
-	encap = pt.encapsulate(table)
-	return encap
+	return text
