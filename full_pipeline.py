@@ -44,7 +44,7 @@ for link in all_links:
 	if len(table) > 5:
 		fm.save("ft_" + link, table)
 		for key in table.keys():
-			guide[key] = 0
+			guide[key] = {}
 
 #   Sort guide
 guide = dict(sorted(guide.items()))
@@ -54,8 +54,19 @@ if len(all_links) > 0 and len(guide) > 0:
 	fm.save("_all_links", all_links)
 	fm.save("_guide", guide)
 
+reverse_index = guide
+for key in reverse_index.keys():
+	reverse_index[key] = []
+
 #   Represent each document in {guide} vector space
 for link in all_links:
 	ft = fm.get("ft_" + link)
-	gft = pt.guided_frequency_table(guide, ft)
-	fm.save("gft_" + link, gft)
+	fm.save("ft_" + link, ft)
+	for keyword,count in ft.items():
+		reverse_index[keyword].append({
+			"link": link,
+			"count": count,
+			"TF-IDF": 0
+		})
+
+fm.save("_reverse_index", reverse_index)
