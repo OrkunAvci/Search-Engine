@@ -1,6 +1,7 @@
 import process_pages as pp
 import process_text as pt
 import file_manager as fm
+import process_reverse_index as pri
 
 tags = [
 	# Commented out for safety and sanity.
@@ -70,3 +71,10 @@ for link in all_links:
 		})
 
 fm.save("_reverse_index", reverse_index)
+
+reverseIndex = fm.get('_reverse_index')
+wordCounts = pri.getLinkWordCounts(all_links)
+fm.save('linksWordCounts', wordCounts)
+
+fixedReverseIndex = pri.fixReverseIndex(reverseIndex, wordCounts)
+fm.save('_reverse_index_final', fixedReverseIndex)
