@@ -12,6 +12,21 @@ This project has intended to implement TF-IDF based reverse index keyword to doc
 
 ## Quick Start
 
+First install the libraries with `pip`.
+
+````bash
+pip install -r requirements.txt
+````
+
+Then run the `full_pipeline.py`.
+
+```bash
+cd ../Web-Crawler
+python full_pipeline.py
+```
+
+If `python` doesn’t work try running with `python3` or `py`.
+
 
 
 
