@@ -29,7 +29,15 @@ python full_pipeline.py
 
 If `python` doesn’t work try running with `python3` or `py`.
 
+`full_pipeline.py` usually takes some time complete so you can leave it running in the background. You only need to run it ONCE.
 
+When it finishes you will have local resources stored in `./data` folder inside the project folder.
+
+Then you can safely run `main.py` and enjoy browsing the documents.
+
+```bash
+python main.py
+```
 
 
 
