@@ -4,11 +4,13 @@ This project has intended to implement TF-IDF based reverse index keyword to doc
 
 ## Libraries
 
-```
----
----
----
-```
+- nltk
+- re
+- beautifulsoup4
+- selenium
+- requests
+- PyQt5
+- pyqt5-tools
 
 ## Quick Start
 
