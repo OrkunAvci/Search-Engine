@@ -1,0 +1,7 @@
+nltk
+re
+beautifulsoup4
+selenium
+requests
+PyQt5
+pyqt5-tools
