@@ -12,10 +12,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import process_reverse_index as pri
 import file_manager as fm
 
-reverseIndex = fm.get('reverse_index_final')
+reverseIndex = fm.get('_reverse_index_final')
 
 class Ui_MainWindow(object):
-    
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1100, 678)
@@ -72,9 +72,9 @@ class Ui_MainWindow(object):
         myFont = QtGui.QFont()
         myFont.setBold(True)
 
-        
 
-        
+
+
         if sortedList != None:
             for data in sortedList:
                 item1 = QtWidgets.QListWidgetItem()
@@ -93,17 +93,17 @@ class Ui_MainWindow(object):
 
     def clear(self):
         self.listWidget.clear()
-		
-		
-		
-	
 
-if __name__ == '__main__':                       
-    import sys 
+
+
+
+
+if __name__ == '__main__':
+    import sys
     app = QtWidgets.QApplication(sys.argv)
     ex = Ui_MainWindow()
     w = QtWidgets.QMainWindow()
     ex.setupUi(w)
     w.show()
-    sys.exit(app.exec_()) 
+    sys.exit(app.exec_())
 
