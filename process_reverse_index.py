@@ -9,15 +9,15 @@ def getLinkWordCounts(allLinks)->list:
     linksAndCounts = []
     for link in allLinks:
         sub = link.partition("https://")[2].replace("-","_").replace("/","_").replace(".","_")
-        for filename in os.listdir(r'./data/raw_data'):
+        for filename in os.listdir(r'D:/GitHub/Search Engine/data'):
             if filename.partition("raw_")[2] == sub:
                 linkCount = {"link":None, "total_word_count":0}
-                text_file = open(filename)  
-                textt = text_file.read()
+                #text_file = open(filename)
+                textt = fm.get(filename)
                 total_word_cnt = len(pt.tokenize(textt))
                 linkCount["link"] = link
                 linkCount["total_word_count"] = total_word_cnt
-                text_file.close()
+                #text_file.close()
                 linksAndCounts.append(linkCount)
     return linksAndCounts
 
@@ -49,6 +49,6 @@ def getTfIdfsOfWord(word, fixedReverseIndex)->list:
         return None
     else:
         listOfDicts = fixedReverseIndex.get(word)
-        sortedList = sorted(listOfDicts, key=lambda d: d['TF-IDF'], reverse=True) 
+        sortedList = sorted(listOfDicts, key=lambda d: d['TF-IDF'], reverse=True)
         return sortedList
 
